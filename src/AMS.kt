@@ -7,6 +7,7 @@ fun main(args: Array<String>) {
     ifExpression(10)
     greetings(args[1])
     greetings(args[1].toInt())
+    feedTheFish()
 }
 
 fun greetings(time: String) {
@@ -46,4 +47,15 @@ fun ifExpression(temperature: Int) {
 
     val message = "You are ${if (temperature > 50) "fried" else "safe"} fish"
     println(message)
+}
+
+fun feedTheFish() {
+    val day = randomDay()
+    val food = "pellets"
+    println("Today is $day and the fish eat $food")
+}
+
+fun randomDay(): String {
+    val week = listOf("Monday", "Tuesday", "Wednesday", "Thursday", "Friday")
+    return week[Random().nextInt(week.size)]
 }
