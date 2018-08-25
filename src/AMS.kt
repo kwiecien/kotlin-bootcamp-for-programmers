@@ -12,6 +12,22 @@ fun main(args: Array<String>) {
     println(shouldChangeWater(""))
     //println(getFortuneCookie())
     tryFilter()
+    rollDice()
+}
+
+fun rollDice() {
+    println(rollDice1(2))
+    println(rollDice2(2))
+}
+
+val rollDice1 = { sides: Int ->
+    if (sides < 1) 0
+    else Random().nextInt(sides) + 1
+}
+
+val rollDice2: (Int) -> Int = {sides ->
+    if (sides < 1) 0
+    else Random().nextInt(sides) + 1
 }
 
 fun tryFilter() {
