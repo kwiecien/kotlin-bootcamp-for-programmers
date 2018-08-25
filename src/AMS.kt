@@ -5,6 +5,19 @@ fun main(args: Array<String>) {
     dayOfTheWeek()
     expression()
     ifExpression(10)
+    greetings(args[1])
+    greetings(args[1].toInt())
+}
+
+fun greetings(time: String) {
+    println(when (time) {
+        in "1".."11" -> "Good morning!"
+        else -> "Good morning!"
+    })
+}
+
+fun greetings(time: Int) {
+    println(if (time < 12) "Good morning!" else "Good morning!")
 }
 
 fun dayOfTheWeek() {
