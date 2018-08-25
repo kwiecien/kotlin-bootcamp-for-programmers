@@ -21,7 +21,9 @@ fun greetings(time: String = "11") {
 }
 
 fun greetings(time: Int) {
-    println(if (time < 12) "Good morning!" else "Good afternoon!")
+    repeat(2) {
+        println(if (time < 12) "Good morning!" else "Good afternoon!")
+    }
 }
 
 fun dayOfTheWeek() {
