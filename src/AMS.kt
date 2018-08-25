@@ -5,21 +5,22 @@ fun main(args: Array<String>) {
     dayOfTheWeek()
     expression()
     ifExpression(10)
+    greetings()
     greetings(args[1])
     greetings(args[1].toInt())
     feedTheFish()
     println(getFortuneCookie())
 }
 
-fun greetings(time: String) {
+fun greetings(time: String = "11") {
     println(when (time) {
         in "1".."11" -> "Good morning!"
-        else -> "Good morning!"
+        else -> "Good afternoon!"
     })
 }
 
 fun greetings(time: Int) {
-    println(if (time < 12) "Good morning!" else "Good morning!")
+    println(if (time < 12) "Good morning!" else "Good afternoon!")
 }
 
 fun dayOfTheWeek() {
