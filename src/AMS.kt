@@ -8,6 +8,7 @@ fun main(args: Array<String>) {
     greetings(args[1])
     greetings(args[1].toInt())
     feedTheFish()
+    println(getFortuneCookie())
 }
 
 fun greetings(time: String) {
@@ -58,4 +59,13 @@ fun feedTheFish() {
 fun randomDay(): String {
     val week = listOf("Monday", "Tuesday", "Wednesday", "Thursday", "Friday")
     return week[Random().nextInt(week.size)]
+}
+
+fun getFortuneCookie() : String {
+    val fortunes = listOf("You will have a great day!",
+            "Things will go well for you today.",
+            "Enjoy a wonderful day of success.")
+    print("Enter your birthday: ")
+    val birthday = readLine()?.toIntOrNull() ?: 1
+    return fortunes[birthday.rem(fortunes.size)]
 }
