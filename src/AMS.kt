@@ -10,7 +10,20 @@ fun main(args: Array<String>) {
     greetings(args[1].toInt())
     feedTheFish()
     println(shouldChangeWater(""))
-    println(getFortuneCookie())
+    //println(getFortuneCookie())
+    tryFilter()
+}
+
+fun tryFilter() {
+    val spices = listOf("curry", "pepper", "cayenne", "ginger", "red curry", "green curry", "red pepper")
+    val lazySpices = spices.asSequence().filter { it.contains("curry") }.sortedBy { it.length }
+    val eagerSpices = spices.filter { it.contains("curry") }.sortedBy { it.length }
+    println(lazySpices)
+    println(eagerSpices)
+    println(spices.filter { it[0] == 'c' && it[it.length - 1] == 'e' })
+    println(spices.filter { it.startsWith('c') }.filter { it.endsWith('e') })
+    println(spices.subList(0, 3).filter { it[0] == 'c' })
+    println(spices.take(3).filter { it.startsWith('c') })
 }
 
 fun greetings(time: String = "11") {
