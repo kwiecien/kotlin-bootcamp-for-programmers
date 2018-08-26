@@ -1,6 +1,8 @@
 package spice
 
-abstract class Spice(val name: String, val spiciness: String = "mild", color: SpiceColor) :
+import aquarium.Color
+
+sealed class Spice(val name: String, val spiciness: String = "mild", color: SpiceColor) :
         SpiceColor by color {
     abstract fun prepareSpice()
 }
