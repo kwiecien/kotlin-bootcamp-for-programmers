@@ -1,8 +1,16 @@
 package book
 
+const val MAX_NUMBER_OF_BOOKS = 5
+
 fun main(args: Array<String>) {
     pairsAndTriples()
     collections()
+    constants()
+}
+
+fun constants() {
+    val book = Book("TDD", "Beck", 1990)
+    book.printlnUrl()
 }
 
 fun collections() {
@@ -27,6 +35,14 @@ open class Book(val title: String, val author: String, val year: Int) {
 
     private var currentPage = 1
 
+    object Constants {
+        const val BASE_URL = "http://turtlecare.net"
+    }
+
+    companion object {
+        const val BASE_URL = "http://turtlecare.net"
+    }
+
     open fun readPage() {
         currentPage++
     }
@@ -37,6 +53,15 @@ open class Book(val title: String, val author: String, val year: Int) {
 
     fun getAllData(): Triple<String, String, Int> {
         return Triple(title, author, year)
+    }
+
+    fun canBorrow(hasBooks: Int): Boolean {
+        return hasBooks < MAX_NUMBER_OF_BOOKS
+    }
+
+    fun printlnUrl() {
+        println(Constants.BASE_URL + title + ".html")
+        println("$BASE_URL$title.html")
     }
 
 }
