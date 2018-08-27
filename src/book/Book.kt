@@ -1,6 +1,22 @@
 package book
 
 fun main(args: Array<String>) {
+    pairsAndTriples()
+    collections()
+}
+
+fun collections() {
+    val allBooks = setOf("Makbet", "Hamlet")
+    val library = mapOf(allBooks to "Shakespeare")
+    println(library.any { it.key.contains("Hamlet") })
+
+    val moreBooks = mutableMapOf("Winnetou" to "May")
+    println(moreBooks)
+    moreBooks.getOrPut("Harry Potter") {"Rowling"}
+    println(moreBooks)
+}
+
+fun pairsAndTriples() {
     val book = Book("TDD", "Beck", 1990)
     val (title, author, year) = book.getAllData()
     val bookTitleAuthor = book.getAllData()
