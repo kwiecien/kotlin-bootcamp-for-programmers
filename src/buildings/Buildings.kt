@@ -13,12 +13,18 @@ class Brick : BaseBuildingMaterial() {
 }
 
 class Building<out T : BaseBuildingMaterial>(private val buildingMaterial: T) {
-    private val baseMaterialsNeeded: Int = 100
-    private val actualMaterialsNeeded: Int = buildingMaterial.numberNeeded * baseMaterialsNeeded
+    val baseMaterialsNeeded: Int = 100
+    val actualMaterialsNeeded: Int = buildingMaterial.numberNeeded * baseMaterialsNeeded
 
     fun build() = println(buildingMaterial::class.simpleName + actualMaterialsNeeded)
 }
 
+fun <T : BaseBuildingMaterial> Building<T>.isSmallBuilding() {
+    if (actualMaterialsNeeded < 500) println("Small building")
+    else println("Large building")
+}
+
 fun main(args: Array<String>) {
     Building(Wood()).build()
+    Building(Brick()).isSmallBuilding()
 }
